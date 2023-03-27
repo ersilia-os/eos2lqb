@@ -1,9 +1,9 @@
 {
-    "Identifier": "",
-    "Slug": "",
-    "Status": "",
-    "Title": "",
-    "Description": "",
+    "Identifier": "eos2lqb",
+    "Slug": "human-oral-bioavailability",
+    "Status": "In progress",
+    "Title": "Human oral bioavailability prediction",
+    "Description": "Prediction of human oral bioavailability for small molecules. Given SMILES, the HobPre predicts the Human oral bioavailability (HOB) value (two cutoffs of 20% and 50% for classification of molecules). The prediction is either high or low HOB.",
     "Mode": "",
     "Task": [],
     "Input": [],
@@ -12,8 +12,10 @@
     "Output Type": [],
     "Output Shape": "",
     "Interpretation": "",
-    "Tag": [],
-    "Publication": "",
-    "Source Code": "",
-    "License": ""
+    "Tag": [
+        "ADME"
+    ],
+    "Publication": "https://doi.org/10.1186/s13321-021-00580-6",
+    "Source Code": "https://github.com/whymin/HOB",
+    "License": "Creative Commons"
 }
