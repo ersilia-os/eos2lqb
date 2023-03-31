@@ -10,12 +10,12 @@
     "Input Shape": "Single",
     "Output": ["Text"],
     "Output Type": ["String"],
-    "Output Shape": "Single",
-    "Interpretation": "This model takes smiles as input and outputs the HOB classes for both the 20% cutoff and that of 50% cutoff",
+    "Output Shape": "List",
+    "Interpretation": "This model takes smiles as input and outputs the human-oral-bioavailability(HOB) classes for both the 20% cutoff and that of 50% cutoff",
     "Tag": [
         "ADME"
     ],
     "Publication": "https://doi.org/10.1186/s13321-021-00580-6",
     "Source Code": "https://github.com/whymin/HOB",
-    "License": "Creative Commons"
+    "License": "CC"
 }
