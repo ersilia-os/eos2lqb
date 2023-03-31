@@ -4,18 +4,18 @@
     "Status": "In progress",
     "Title": "Human oral bioavailability prediction",
     "Description": "Prediction of human oral bioavailability for small molecules. Given SMILES, the HobPre predicts the Human oral bioavailability (HOB) value (two cutoffs of 20% and 50% for classification of molecules). The prediction is either high or low HOB.",
-    "Mode": "",
-    "Task": [],
-    "Input": [],
-    "Input Shape": "",
-    "Output": [],
-    "Output Type": [],
-    "Output Shape": "",
-    "Interpretation": "",
+    "Mode": "Pretrained",
+    "Task": ["Classification"],
+    "Input": ["Compound"],
+    "Input Shape": "Single",
+    "Output": ["Text"],
+    "Output Type": ["String"],
+    "Output Shape": "List",
+    "Interpretation": "This model takes smiles as input and outputs the human-oral-bioavailability(HOB) classes for both the 20% cutoff and that of 50% cutoff",
     "Tag": [
         "ADME"
     ],
     "Publication": "https://doi.org/10.1186/s13321-021-00580-6",
     "Source Code": "https://github.com/whymin/HOB",
-    "License": "Creative Commons"
+    "License": "CC"
 }
