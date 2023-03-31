@@ -1,6 +1,3 @@
-# imports
-import os
-import csv
 import sys
 from rdkit import Chem
 from rdkit.Chem.Descriptors import MolWt
@@ -360,7 +357,7 @@ def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''):
     pre_list = []
     pre_proba_list1 = []
     pre_proba_list2 = []
-    
+
     pre_data1_0 = mordred_data[save_index1]
     pre_data1 = np.delete(np.array(pre_data1_0), zero1, axis=1)
     pre_data1[np.isnan(pre_data1)] = 0
@@ -391,7 +388,7 @@ def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''):
     for ax in range(newX.shape[0]):
         a = p.contains_point((newX[ax,0], newX[ax,1]))
         domain.append(a)
-    
+
     df_right = pd.DataFrame() 
     # df_right['num']=right_num
     # df_right['smiles'] = smiles_right
@@ -399,7 +396,7 @@ def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''):
     df_right['HOB Class'] = prediction
     df_right['probability(low)'] = pre_proba_list1
     df_right['probability(high)'] = pre_proba_list2
-    df_right['inside the applicability domain'] = domain
+    #df_right['inside the applicability domain'] = domain
     return df_right
 
 
@@ -450,9 +447,7 @@ def run_model():
 
 outputs = run_model()
 # write output in a .csv file
-with open(output_file, "w") as f: 
-    print(type(outputs))
+with open(output_file, "w") as f:  
     writer = csv.writer(f)
     writer.writerow(["value"])  # header  
     writer.writerow(outputs)
-
