@@ -378,7 +378,7 @@ def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''):
     pre_proba_list1=[round(a*100,2) for a in pre_proba[:, 0]]
     pre_proba_list2=[round(b*100,2) for b in pre_proba[:, 1]] 
 
-    pca = joblib.load('hob_pre/pca_hob.m') 
+    pca = joblib.load(os.path.abspath(os.path.join(root, 'hob_pre/pca_hob.m'))) 
     finger11=pre_data1/avgs
     n_samples = 1157
     newX=pca.transform(finger11) 
