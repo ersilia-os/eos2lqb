@@ -1,11 +1,11 @@
 # Human oral bioavailability prediction
 
-Prediction of human oral bioavailability for small molecules. Given SMILES, the HobPre predicts the Human oral bioavailability (HOB) value (two cutoffs of 20% and 50% for classification of molecules). The prediction is either high or low HOB.
+HobPre predicts the oral bioavailability of small molecules in humans. It has been trained using public data on ~1200 molecules (Falcón-Cano et al, 2020, complemented with other literature and ChEMBL compounds). The molecules were labeled according to two cut-offs: HOB > 20% and HOB > 50%, due to ongoing discussions as to which would be a more appropriate cut-off.
 
 ## Identifiers
 
 * EOS model ID: `eos2lqb`
-* Slug: `human-oral-bioavailability`
+* Slug: `hob-pre`
 
 ## Characteristics
 
@@ -15,7 +15,7 @@ Prediction of human oral bioavailability for small molecules. Given SMILES, the 
 * Output: `Text`
 * Output Type: `String`
 * Output Shape: `List`
-* Interpretation: This model takes smiles as input and outputs the human-oral-bioavailability(HOB) classes for both the 20% cutoff and that of 50% cutoff
+* Interpretation: Probability of a compound having high oral bioavailability (HOB >20% and HOB >50%)
 
 ## References
 
@@ -29,7 +29,7 @@ If you use this model, please cite the [original authors](https://doi.org/10.118
 
 ## License
 
-This package is licensed under a GPL-3.0 license. The model contained within this package is licensed under a CC license.
+This package is licensed under a GPL-3.0 license. The model contained within this package is licensed under a None license.
 
 Notice: Ersilia grants access to these models 'as is' provided by the original authors, please refer to the original code repository and/or publication if you use the model in your research.
 
