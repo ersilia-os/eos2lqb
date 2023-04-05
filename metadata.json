@@ -1,21 +1,23 @@
 {
     "Identifier": "eos2lqb",
-    "Slug": "human-oral-bioavailability",
-    "Status": "In progress",
+    "Slug": "hob-pre",
+    "Status": "Ready",
     "Title": "Human oral bioavailability prediction",
-    "Description": "Prediction of human oral bioavailability for small molecules. Given SMILES, the HobPre model predicts the Human oral bioavailability (HOB) value (two cutoffs of 20% and 50% for classification of molecules). The prediction is either high or low HOB.",
+    "Description": "HobPre predicts the oral bioavailability of small molecules in humans. It has been trained using public data on ~1200 molecules (Falcón-Cano et al, 2020, complemented with other literature and ChEMBL compounds). The molecules were labeled according to two cut-offs: HOB > 20% and HOB > 50%, due to ongoing discussions as to which would be a more appropriate cut-off.",
     "Mode": "Pretrained",
     "Task": ["Classification"],
     "Input": ["Compound"],
     "Input Shape": "Single",
     "Output": ["Probability"],
     "Output Type": ["Float"],
-    "Output Shape": "List",
-    "Interpretation": "This model takes smiles as input and outputs the Probability(high) of human-oral-bioavailability(HOB) for both the 20% cutoff and that of 50% cutoff.  The first value is the probability of HOB being high at 20% cutoff and the second value is the probability of HOB being high at 50% cutoff.",
+    "Output Shape": "List", 
+    "Interpretation": "Probability of a compound having high oral bioavailability (HOB >20% and HOB >50%)",
     "Tag": [
-        "ADME"
+        "ADME",
+        "Solubility",
+        "Human"
     ],
     "Publication": "https://doi.org/10.1186/s13321-021-00580-6",
     "Source Code": "https://github.com/whymin/HOB",
-    "License": "CC"
+    "License": "None"
 }
