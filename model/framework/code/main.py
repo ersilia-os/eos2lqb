@@ -442,7 +442,7 @@ def run_model(smiles):
 
 with open(output_file, "w") as f:
     writer = csv.writer(f)
-    writer.writerow(['P(high)_HOB-20%', 'P(high)_HOB-50%'])  # header
+    writer.writerow(['P(high)_HOB>20%', 'P(high)_HOB>50%'])  # header
 
 with open(input_file, "r") as f:
     reader = csv.reader(f)
