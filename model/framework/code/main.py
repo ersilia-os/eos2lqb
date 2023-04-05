@@ -375,8 +375,8 @@ def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''):
     prediction=[]
     for x in pre_list:
         prediction.append(pre_name[x]) 
-    pre_proba_list1=[round(a*100,2) for a in pre_proba[:, 0]]
-    pre_proba_list2=[round(b*100,2) for b in pre_proba[:, 1]] 
+    pre_proba_list1=[a for a in pre_proba[:, 0]]
+    pre_proba_list2=[b for b in pre_proba[:, 1]] 
 
     pca = joblib.load(os.path.abspath(os.path.join(root, 'hob_pre/pca_hob.m'))) 
     finger11=pre_data1/avgs
@@ -394,8 +394,8 @@ def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''):
     # df_right['smiles'] = smiles_right
     #df_right['prediction'] = pre_list
     df_right['HOB Class'] = prediction
-    df_right['probability(low)'] = pre_proba_list1
-    df_right['probability(high)'] = pre_proba_list2
+    df_right['P(low)'] = pre_proba_list1
+    df_right['P(high)'] = pre_proba_list2
     #df_right['inside the applicability domain'] = domain
     return df_right
 
@@ -425,12 +425,9 @@ def my_model(smiles, cutoff):
     #df=pd.concat([df_right,df_error],axis=0) 
     #df=df.fillna(-1)
     #print(df)
-
-    #output = df_right.to_dict(orient="records") 
-    output = df_right['HOB Class'].values[0]
+ 
+    output = df_right['P(high)'].values[0]
     return output
-
-
 
 
 # run model
@@ -438,15 +435,14 @@ def run_model(smiles):
     predicted = []
     for cutoff in cutoffs:
         predictions = my_model(smiles , cutoff)
-        predicted.append('HOB({}%): {}'.format(cutoff, predictions))
+        predicted.append(predictions)
     return predicted
-
 
 
 
 with open(output_file, "w") as f:
     writer = csv.writer(f)
-    writer.writerow(['HOB-20%_cutoff', 'HOB-50%_cutoff'])  # header
+    writer.writerow(['P(high)_HOB>20%', 'P(high)_HOB>50%'])  # header
 
 with open(input_file, "r") as f:
     reader = csv.reader(f)
@@ -458,10 +454,3 @@ with open(input_file, "r") as f:
             output = run_model([smiles_list[s]])
             print(output) 
             writer.writerow(output)
-
-# outputs = run_model(smiles_list)
-# # write output in a .csv file
-# with open(output_file, "w") as f:   
-#     writer = csv.writer(f)
-#     writer.writerow(["value"])  # header  
-#     writer.writerow(outputs)

@@ -12,8 +12,8 @@ HobPre predicts the oral bioavailability of small molecules in humans. It has be
 * Input: `Compound`
 * Input Shape: `Single`
 * Task: `Classification`
-* Output: `Text`
-* Output Type: `String`
+* Output: `Probability`
+* Output Type: `Float`
 * Output Shape: `List`
 * Interpretation: Probability of a compound having high oral bioavailability (HOB >20% and HOB >50%)
 

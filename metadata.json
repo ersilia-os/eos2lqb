@@ -8,9 +8,9 @@
     "Task": ["Classification"],
     "Input": ["Compound"],
     "Input Shape": "Single",
-    "Output": ["Text"],
-    "Output Type": ["String"],
-    "Output Shape": "List",
+    "Output": ["Probability"],
+    "Output Type": ["Float"],
+    "Output Shape": "List", 
     "Interpretation": "Probability of a compound having high oral bioavailability (HOB >20% and HOB >50%)",
     "Tag": [
         "ADME",
