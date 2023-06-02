@@ -452,5 +452,4 @@ with open(input_file, "r") as f:
         writer = csv.writer(f) 
         for s in range(len(smiles_list)):
             output = run_model([smiles_list[s]])
-            print(output) 
             writer.writerow(output)
