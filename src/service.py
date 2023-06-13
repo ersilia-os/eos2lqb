@@ -83,15 +83,14 @@ class Model(object):
         with open(log_file, "w") as fp:
             subprocess.Popen(
                 cmd, stdout=fp, stderr=fp, shell=True, env=os.environ
-            ).wait()
+            ).wait() 
         with open(output_file, "r") as f:
             reader = csv.reader(f)
             h = next(reader)
             R = []
             for r in reader:
-                R += [
-                    {"outcome": [Float(x) for x in r]}
-                ]  # <-- EDIT: Modify according to type of output (Float, String...)
+                R += [{"P(high)_HOB>20%": Float(r[0]), "P(high)_HOB>50%": Float(r[1])}
+                    ] # <-- EDIT: Modify according to type of output (Float, String...)  
         meta = {"outcome": h}
         result = {"result": R, "meta": meta}
         shutil.rmtree(tmp_folder)
