@@ -328,6 +328,8 @@ def mordred_calculate(smiles_right,dirname=''):
     mingling = 'python -m mordred ' + smi_path + ' -o ' + finger_path
     os.system(mingling)
     finger=pd.read_csv(finger_path)
+    os.remove(smi_path)
+    os.remove(finger_path)
     return finger
 
 
@@ -396,4 +398,3 @@ def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''):
     ## Return only probability of high
     # print(df_right['P(high)'].values)
     return df_right['P(high)'].values
-
