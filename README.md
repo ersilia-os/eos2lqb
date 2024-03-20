@@ -26,7 +26,7 @@ HobPre predicts the oral bioavailability of small molecules in humans. It has be
 ## Ersilia model URLs
 * [GitHub](https://github.com/ersilia-os/eos2lqb)
 * [AWS S3](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2lqb.zip)
-* [DockerHub](https://hub.docker.com/r/ersiliaos/eos2lqb) (AMD64, ARM64)
+* [DockerHub](https://hub.docker.com/r/ersiliaos/eos2lqb) (AMD64)
 
 ## Citation
 
