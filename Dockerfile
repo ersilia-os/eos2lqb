@@ -9,6 +9,8 @@ RUN pip install matplotlib
 RUN pip install scikit-learn==0.23.2
 RUN pip install "numpy<1.24"
 RUN pip install networkx==2.3
+RUN conda install -c conda-forge xorg-libxrender xorg-libxtst
+
 
 WORKDIR /repo
 COPY . /repo
