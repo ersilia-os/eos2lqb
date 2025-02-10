@@ -1,0 +1,3 @@
+name,type,direction,description
+P(high)_HOB>20%,float,high,Probability of moderate oral bioavailability (cut-off 20%)
+P(high)_HOB>50%,float,high,Probability of high oral bioavailability (cut-off 50%)
