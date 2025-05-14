@@ -44,7 +44,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `3`
 - **Environment Size (Mb):** `739`
+- **Image Size (Mb):** `686.26`
 
+**Computational Performance (seconds):**
+- 10 inputs: `37.05`
+- 100 inputs: `125.46`
+- 10000 inputs: `-1`
 
 ### References
 - **Source Code**: [https://github.com/whymin/HOB](https://github.com/whymin/HOB)
