@@ -40,20 +40,13 @@ def my_model(smiles):
     df_right['num']=right_num
     df_right['smiles'] = smiles_right
     # get predictions for each cuttoff
-    df_right['P(high)_HOB>20%'] = model_predict('20',smiles_right, mols_right, right_num,modelpt)
-    df_right['P(high)_HOB>50%'] = model_predict('50',smiles_right, mols_right, right_num,modelpt)
+    df_right[['hob_20perc', 'applicability_20perc']] = model_predict('20',smiles_right, mols_right, right_num,modelpt)
+    df_right[['hob_50perc', 'applicability_50perc']] = model_predict('50',smiles_right, mols_right, right_num,modelpt)
     df = pd.concat([df_right,df_error],axis=0) 
     # Sort the DataFrame by the "smiles" column while preserving the original order
-    df = df.sort_values('smiles', key=lambda x: x.map({**{smile: i for i, smile in enumerate(smiles)}, **{}}))
-
-    # Fill NaN values with 'invalid smile' if 'smiles' column is not empty
-    mask = df['smiles'] != ''
-    df.loc[mask, ['P(high)_HOB>20%', 'P(high)_HOB>50%']] = df.loc[mask, ['P(high)_HOB>20%', 'P(high)_HOB>50%']].fillna('invalid smile')
-    # print(df)
-    # add each pair of the cutoff predictions as one output   
-    predictions = df[['P(high)_HOB>20%', 'P(high)_HOB>50%']].values.tolist() 
-
-    return predictions
+    df = df.sort_values('smiles', key=lambda x: x.map({**{smile: i for i, smile in enumerate(smiles)}, **{}})) 
+    df = df[['hob_20perc', 'applicability_20perc','hob_50perc', 'applicability_50perc']]
+    return df
 
 
 # read SMILES from .csv file, assuming one column with header
@@ -65,14 +58,4 @@ with open(input_file, "r") as f:
 # run model
 outputs = my_model(smiles_list)
 
-#check input and output have the same lenght
-input_len = len(smiles_list)
-output_len = len(outputs)
-assert input_len == output_len
-
-# write output in a .csv file
-with open(output_file, "w") as f:
-    writer = csv.writer(f)
-    writer.writerow(['P(high)_HOB>20%', 'P(high)_HOB>50%'])  # header
-    for r in outputs:
-        writer.writerow(r)
+outputs.to_csv(output_file, index=False)

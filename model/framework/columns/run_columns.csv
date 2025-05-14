@@ -1,3 +1,5 @@
 name,type,direction,description
-P(high)_HOB>20%,float,high,Probability of moderate oral bioavailability (cut-off 20%)
-P(high)_HOB>50%,float,high,Probability of high oral bioavailability (cut-off 50%)
+hob_20perc,float,high,Probability of moderate oral bioavailability (cut-off 20%)
+applicability_20perc,float,high,The molecule falls in the applicability domain(1) or not(0)
+hob_50perc,float,high,Probability of high oral bioavailability (cut-off 50%)
+applicability_50perc,float,high,The molecule falls in the applicability domain(1) or not(0)

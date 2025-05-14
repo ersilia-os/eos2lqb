@@ -394,7 +394,6 @@ def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''):
     df_right['P(low)'] = pre_proba_list1
     df_right['P(high)'] = pre_proba_list2
     df_right['inside the applicability domain'] = domain
-    # print(df_right)
-    ## Return only probability of high
-    # print(df_right['P(high)'].values)
-    return df_right['P(high)'].values
+    df_right['inside the applicability domain']=df_right['inside the applicability domain'].astype(int)
+
+    return df_right[['P(high)', 'inside the applicability domain']].values
