@@ -3,22 +3,26 @@
     "Slug": "hob-pre",
     "Status": "Ready",
     "Title": "Human oral bioavailability prediction",
-    "Description": "HobPre predicts the oral bioavailability of small molecules in humans. It has been trained using public data on ~1200 molecules (Falc\u00f3n-Cano et al, 2020, complemented with other literature and ChEMBL compounds). The molecules were labeled according to two cut-offs: HOB > 20% and HOB > 50%, due to ongoing discussions as to which would be a more appropriate cut-off.",
-    "Mode": "Pretrained",
-    "Task": [
-        "Classification"
-    ],
+    "Description": "HobPre predicts the oral bioavailability of small molecules in humans. It has been trained using public data on ~1200 molecules (Falc\u00f3n-Cano et al, 2020, complemented with other literature and ChEMBL compounds). The molecules were labeled according to two cut-offs: HOB > 20% and HOB > 50%, due to ongoing discussions as to which would be a more appropriate cut-off.\n",
+    "Source": "Local",
+    "Source Type": "External",
     "Input": [
         "Compound"
     ],
-    "Input Shape": "Single",
+    "Input Dimension": 1,
+    "Task": "Annotation",
+    "Subtask": "Property calculation or prediction",
+    "Biomedical Area": [
+        "ADMET"
+    ],
+    "Target Organism": [
+        "Homo sapiens"
+    ],
     "Output": [
         "Probability"
     ],
-    "Output Type": [
-        "Float"
-    ],
-    "Output Shape": "List",
+    "Output Dimension": 2,
+    "Output Consistency": "Fixed",
     "Interpretation": "Probability of a compound having high oral bioavailability (HOB >20% and HOB >50%)",
     "Tag": [
         "ADME",
@@ -26,11 +30,18 @@
         "Human"
     ],
     "Publication": "https://doi.org/10.1186/s13321-021-00580-6",
+    "Publication Type": "Peer reviewed",
+    "Publication Year": 2022,
     "Source Code": "https://github.com/whymin/HOB",
     "License": "None",
-    "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2lqb.zip",
+    "Contributor": "HellenNamulinda",
+    "Incorporation Date": "2023-03-27",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos2lqb",
     "Docker Architecture": [
         "AMD64"
+    ],
+    "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2lqb.zip",
+    "Deployment": [
+        "Local"
     ]
 }
