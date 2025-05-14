@@ -41,9 +41,13 @@
     "Incorporation Date": "2023-03-27",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos2lqb.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos2lqb",
-    "Docker Architecture": [
-        "AMD64"
-    ],
+    "Docker Architecture": "AMD64",
     "Model Size": 3.0,
-    "Environment Size": 739.0
+    "Environment Size": 739.0,
+    "Image Size": 686.26,
+    "Computational Performance 1": 37.05,
+    "Computational Performance 2": 38.64,
+    "Computational Performance 3": 125.46,
+    "Computational Performance 4": 1149.29,
+    "Computational Performance 5": -1.0
 }
