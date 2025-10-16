@@ -2,8 +2,7 @@
 
 HobPre predicts the oral bioavailability of small molecules in humans. It has been trained using public data on ~1200 molecules (Falcón-Cano et al, 2020, complemented with other literature and ChEMBL compounds). The molecules were labeled according to two cut-offs: HOB > 20% and HOB > 50%, due to ongoing discussions as to which would be a more appropriate cut-off.
 
-This model was incorporated on 2023-03-27.
-
+This model was incorporated on 2023-03-27.Last packaged on 2025-10-16.
 
 ## Information
 ### Identifiers
@@ -45,11 +44,11 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `3`
 - **Environment Size (Mb):** `753`
-- **Image Size (Mb):** `686.3`
+- **Image Size (Mb):** `768.62`
 
 **Computational Performance (seconds):**
-- 10 inputs: `37.36`
-- 100 inputs: `127.75`
+- 10 inputs: `29.99`
+- 100 inputs: `52.34`
 - 10000 inputs: `-1`
 
 ### References
