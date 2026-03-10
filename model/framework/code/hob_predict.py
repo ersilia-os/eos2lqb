@@ -3,7 +3,7 @@ from rdkit import Chem
 from rdkit.Chem.Descriptors import MolWt
 import pandas as pd
 import numpy as np
-import pickle,os 
+import pickle,os,tempfile
 from rdkit.Chem import Draw 
 import codecs 
 from sklearn.decomposition import PCA
@@ -317,14 +317,15 @@ def mordred_calculate(smiles_right,dirname=''):
         smi_path=dirname+'/'+'smiles.smi'
         finger_path=dirname+'/'+'finger.csv'
     else:
-        smi_path='smiles.smi'
-        smile_file =open(smi_path,'w')
+        tmp_fd, smi_path = tempfile.mkstemp(suffix=".smi")
+        os.close(tmp_fd)
+        smile_file = open(smi_path,'w')
         for smile in smiles_right:
             smile=smile.replace("'", '')+'\n'
             smile_file.write(smile)
         smile_file.close()
-        smi_path='smiles.smi'
-        finger_path='finger.csv'
+        tmp_fd, finger_path = tempfile.mkstemp(suffix=".csv")
+        os.close(tmp_fd)
     mingling = 'python -m mordred ' + smi_path + ' -o ' + finger_path
     os.system(mingling)
     finger=pd.read_csv(finger_path)
