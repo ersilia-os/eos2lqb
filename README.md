@@ -21,7 +21,7 @@ This model was incorporated on 2023-03-27.Last packaged on 2025-10-16.
 - **Input Dimension:** `1`
 
 ### Output
-- **Output Dimension:** `2`
+- **Output Dimension:** `4`
 - **Output Consistency:** `Fixed`
 - **Interpretation:** Probability of a compound having high oral bioavailability (HOB >20% and HOB >50%)
 
