@@ -1,6 +1,6 @@
 # Human oral bioavailability prediction
 
-Predicts whether an orally dosed compound will achieve appreciable systemic exposure, reported at two thresholds of 20% and 50% bioavailability. HobPre, from Wei and colleagues, was trained on curated human oral bioavailability measurements, a scarce endpoint because values come from clinical pharmacokinetic studies rather than routine assays. Each prediction is accompanied by an applicability domain flag indicating whether the query falls within the chemical space the model was fitted on.
+HobPre predicts the oral bioavailability of small molecules in humans. It has been trained using public data on ~1200 molecules (Falcón-Cano et al, 2020, complemented with other literature and ChEMBL compounds). The molecules were labeled according to two cut-offs: HOB > 20% and HOB > 50%, due to ongoing discussions as to which would be a more appropriate cut-off.
 
 This model was incorporated on 2023-03-27.Last packaged on 2026-03-10.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2023-03-27.Last packaged on 2026-03-10.
 ### Output
 - **Output Dimension:** `4`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of human oral bioavailability above 20% and above 50%, with applicability domain flags.
+- **Interpretation:** Probability of a compound having high oral bioavailability (HOB >20% and HOB >50%)
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
