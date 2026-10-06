@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import pickle,os    
 import csv
-from hob_predict import model_predict
+from hob_predict import model_predict, mordred_calculate
 
 # parse arguments
 input_file = sys.argv[1]
@@ -39,9 +39,14 @@ def my_model(smiles):
     df_error['smiles']=smiles_false
     df_right['num']=right_num
     df_right['smiles'] = smiles_right
+    # OPTIMIZATION: compute the Mordred descriptors once and share them between the
+    # two cutoffs. Before, each model_predict call ran Mordred again on the same
+    # molecules, and Mordred is ~90% of the runtime. Same descriptors, same outputs.
+    mordred_data = mordred_calculate(smiles_right)
+
     # get predictions for each cuttoff
-    df_right[['hob_20perc', 'applicability_20perc']] = model_predict('20',smiles_right, mols_right, right_num,modelpt)
-    df_right[['hob_50perc', 'applicability_50perc']] = model_predict('50',smiles_right, mols_right, right_num,modelpt)
+    df_right[['hob_20perc', 'applicability_20perc']] = model_predict('20',smiles_right, mols_right, right_num,modelpt, mordred_data=mordred_data)
+    df_right[['hob_50perc', 'applicability_50perc']] = model_predict('50',smiles_right, mols_right, right_num,modelpt, mordred_data=mordred_data)
     df = pd.concat([df_right,df_error],axis=0) 
     # Sort the DataFrame by the "smiles" column while preserving the original order
     df = df.sort_values('smiles', key=lambda x: x.map({**{smile: i for i, smile in enumerate(smiles)}, **{}})) 

@@ -326,7 +326,10 @@ def mordred_calculate(smiles_right,dirname=''):
         smile_file.close()
         tmp_fd, finger_path = tempfile.mkstemp(suffix=".csv")
         os.close(tmp_fd)
-    mingling = 'python -m mordred ' + smi_path + ' -o ' + finger_path
+    # FIX: run Mordred with the same Python that runs the model (sys.executable).
+    # A bare "python" uses whatever is first on PATH, which may be another
+    # environment without mordred; the run then fails with an empty descriptor file.
+    mingling = sys.executable + ' -m mordred ' + smi_path + ' -o ' + finger_path
     os.system(mingling)
     finger=pd.read_csv(finger_path)
     os.remove(smi_path)
@@ -350,8 +353,11 @@ def load_rfmodel(cutoff):
     return model_rf0,model_rf1,model_rf2,model_rf3,model_rf4
 
 
-def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname=''): 
-    mordred_data=mordred_calculate(smiles_right)
+def model_predict(cutoff,smiles_right,mols_right,right_num,modelpt,dirname='',mordred_data=None):
+    # OPTIMIZATION: reuse descriptors computed by the caller (main.py computes them
+    # once for both cutoffs); only compute them here if none were passed.
+    if mordred_data is None:
+        mordred_data=mordred_calculate(smiles_right)
     pre_list = []
     pre_proba_list1 = []
     pre_proba_list2 = []
