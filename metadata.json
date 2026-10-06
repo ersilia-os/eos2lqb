@@ -44,7 +44,7 @@
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos2lqb",
     "Docker Architecture": "AMD64",
     "Model Size": 3.0,
-    "Environment Size": 736.0,
+    "Environment Size": 735.0,
     "Image Size": 771.07,
     "Computational Performance 1": 30.78,
     "Computational Performance 2": 24.67,
