@@ -1,6 +1,6 @@
 # Human oral bioavailability prediction
 
-Predicts whether an orally dosed compound will achieve appreciable systemic exposure, reported at two thresholds of 20% and 50% bioavailability. HobPre, from Wei and colleagues, was trained on curated human oral bioavailability measurements, a scarce endpoint because values come from clinical pharmacokinetic studies rather than routine assays. Each prediction is accompanied by an applicability domain flag indicating whether the query falls within the chemical space the model was fitted on.
+Predicts whether an orally dosed compound will reach appreciable systemic exposure, reported at two thresholds of 20% and 50% bioavailability. HobPre, from Wei and colleagues, takes a consensus vote of five random forest classifiers trained on 1,588 drug molecules with measured human oral bioavailability, a scarce endpoint because values come from clinical pharmacokinetic studies rather than routine assays. Each prediction carries an applicability domain flag, set from a principal component analysis of the training chemistry.
 
 This model was incorporated on 2023-03-27.Last packaged on 2026-10-06.
 
