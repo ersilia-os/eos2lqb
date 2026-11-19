@@ -6,7 +6,7 @@ RUN pip install rdkit==2023.9.6
 RUN pip install mordredcommunity==2.0.6
 RUN pip install matplotlib==3.7.5
 RUN pip install pandas==2.0.3
-RUN pip install networkx==2.3
+RUN pip install networkx==2.4
 RUN pip install numpy==1.23
 
 
