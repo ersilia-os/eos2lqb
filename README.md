@@ -3,7 +3,7 @@
 Predicts whether an orally dosed compound will reach appreciable systemic exposure, reported at two thresholds of 20% and 50% bioavailability. HobPre, from Wei and colleagues, takes a consensus vote of five random forest classifiers trained on 1,588 drug molecules with measured human oral bioavailability, a scarce endpoint because values come from clinical pharmacokinetic studies rather than routine assays. Each prediction carries an applicability domain flag, set from a principal component analysis of the training chemistry.
 
 This model was incorporated on 2023-03-27.
-Last packaged on 2026-10-06.
+Last packaged on 2026-11-19.
 
 ## Information
 ### Identifiers
@@ -45,12 +45,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `3`
 - **Environment Size (Mb):** `736`
-- **Image Size (Mb):** `802.63`
+- **Image Size (Mb):** `252.79`
 
 **Computational Performance (seconds):**
-- 10 inputs: `25.18`
-- 100 inputs: `28.72`
-- 10000 inputs: `781.24`
+- 10 inputs: `26.52`
+- 100 inputs: `27.63`
+- 10000 inputs: `778.2`
 
 ### References
 - **Source Code**: [https://github.com/whymin/HOB](https://github.com/whymin/HOB)
